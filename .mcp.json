@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "openchatcut": {
+      "type": "http",
+      "url": "http://localhost:5199/api/external-mcp/mcp"
+    }
+  }
+}

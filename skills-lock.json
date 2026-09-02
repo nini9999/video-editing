@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "openchatcut": {
+      "source": "0xsline/OpenChatCut",
+      "sourceType": "github",
+      "skillPath": "skills/openchatcut/SKILL.md",
+      "computedHash": "8c41534459db81f533a0c087a7397cfb4c8b0237951ea4aba7c564db9fe271bd"
+    }
+  }
+}
