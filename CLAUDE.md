@@ -9,6 +9,11 @@ OpenChatCut 是一个多轨时间线编辑器,所有 AI 改动都写入**真实�
 
 - Claude Code 通过项目根目录的 `.mcp.json` 连接 OpenChatCut 的本地 MCP 端点:
   `http://localhost:5199/api/external-mcp/mcp`(Streamable HTTP)。
+- **该端点在 localhost 上也强制要 bearer token**。token 在 OpenChatCut app 的
+  **Settings → MCP** 页面显示;`.mcp.json` 通过环境变量 `${OPENCHATCUT_MCP_TOKEN}`
+  读取它,启动 Claude Code 前需 `export OPENCHATCUT_MCP_TOKEN='<token>'`。
+  服务器重启会重新生成 token;想固定可在 OpenChatCut 的 `.env.local` 里设
+  `OPENCHATCUT_MCP_TOKEN`。**切勿把 token 写进仓库。**
 - 使用剪辑工具**前提**:OpenChatCut app 必须已在本机运行,并已打开目标项目。
 - 已安装的 OpenChatCut Agent Skill 是一个 router,按需动态加载 26 个专用剪辑子技能,
   避免一次性把所有工具塞进上下文。

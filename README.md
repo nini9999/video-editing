@@ -27,11 +27,19 @@ npm run dev          # 打开 http://localhost:5199
 ### 2. 把 OpenChatCut 接进 Claude Code
 
 本仓库根目录的 [`.mcp.json`](./.mcp.json) 已包含连接配置,在本机用 Claude Code 打开本仓库即会加载。
+**该端点在 localhost 上也必须带 bearer token**:token 在 OpenChatCut app 的 **Settings → MCP**
+页面显示,`.mcp.json` 通过 `${OPENCHATCUT_MCP_TOKEN}` 读取,所以启动前先 export:
+
+```bash
+export OPENCHATCUT_MCP_TOKEN='<从 Settings → MCP 复制的 token>'
+```
+
 若想全局注册(任意目录可用),运行:
 
 ```bash
-claude mcp add --transport http openchatcut \
-  http://localhost:5199/api/external-mcp/mcp
+claude mcp add --transport http \
+  -H "Authorization: Bearer $OPENCHATCUT_MCP_TOKEN" \
+  openchatcut http://localhost:5199/api/external-mcp/mcp
 ```
 
 ### 3. 安装 OpenChatCut Agent Skill
